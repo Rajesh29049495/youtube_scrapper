@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Youtube channel details</title>
+	<link rel = "stylesheet" href = "{{ url_for('static', filename = 'css/main.css')}}">
+</head>
+	<body>
+		<div align="center">
+			<a href = "https://ineuron.ai/" target="_blank">
+            <img src = "./static/images/ineuron-logo.png" alt = "ineuron-logo"
+             width= "120" height="30" align = "left"/>
+			</a>
+        <h1 align = "center" style = "margin-top: 20px;";>
+            Youtube channel details
+        </h1>
+		<h1 align = "center" style = "margin-top: 20px;";>
+            Showing results for {{channelTitle}}
+        </h1>
+			<table>
+				<h1>
+					{% for table in tables %}
+						<h2>
+							{{titles[loop.index]}}
+						</h2>
+					{{ table|safe }}
+					{% endfor %}
+				</h1>
+			</table>
+		</div>
+	</body>
+</html>
+
+
+<!--
+    1. This is the template when i will try to show the data as a tabel on teh webpage 
+and data will be sedn here by first converting the dataframe into dict using "to_dict()" andn 
+using "records" as an arguement
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Webpage</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>thumbnail</th>
+                <th>video_title</th>
+                <th>punlishedAt</th>
+                <th>view_count</th>
+                <th>like_count</th>
+                <th>comments</th>
+                <th>download_url</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in data_list %}
+            <tr>
+                <td>{{ record['thumbnail'] }}</td>
+                <td>{{ record['video_link'] }}</td>
+                <td>{{ record['punlishedAt'] }}</td>
+                <td>{{ record['view_count'] }}</td>
+                <td>{{ record['like_count'] }}</td>
+                <td>{{ record['comments'] }}</td>
+                <td>{{ record['download_url'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+-->
+
+
+
+<!--
+    2. This is the otjer in whicj i sent the dataframe directly to the page
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Dataframe Example</title>
+</head>
+<body>
+    <h1>Dataframe Example</h1>
+    <table>
+        <thead>
+            <tr>
+                {% for col in data.columns %}
+                    <th>{{ col }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, row in data.iterrows() %}
+                <tr>
+                    {% for value in row %}
+                        <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+-->
+
+
+
